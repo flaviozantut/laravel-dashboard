@@ -1,6 +1,6 @@
 <?php
 
-class Pages_Controller extends Base_Controller
+class Pages_Controller extends  Admin_Base_Controller
 {
     /**
      * The layout being used by the controller.

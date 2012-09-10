@@ -121,9 +121,21 @@ class Admin_Base_Controller extends Controller
             foreach (DB::query("SHOW FIELDS FROM {$data->table()}") as $field) {
                 $fields[] = $field->field;
             }
+
+            //Input::upload('picture', 'path/to/pictures', 'filename.ext');
+
+         //var_dump( Config::get('admin::settings.uploader') ) ;
+         //die();
+
             foreach ($input as $key => $value) {
+                if($key == "csrf_token") continue;
                 if (in_array($key, $fields)) {
-                    $data->$key = $value;
+                    if( in_array($key, Config::get('admin::settings.uploader'))) {
+                        $data->$key = 'lalalalala';
+                    } else { 
+                        $data->$key = $value;
+                    }
+                    
                 } else {
                     //$data->$key()->sync(array($value));
                     //var_dump($data->$key()->delete());

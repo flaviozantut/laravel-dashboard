@@ -13,6 +13,7 @@ class Form extends \Laravel\Form
     {
         $edit = property_exists($data , 'attributes');
         $form = '';
+         $form .= Form::token();
         foreach ($description as $column => $espec) {
             $column = preg_replace("/^(.*\.)|(.*as )/", '', $column);
             
@@ -25,6 +26,7 @@ class Form extends \Laravel\Form
             } else {
                 $val =false;
             }
+
             $form .= '<div class="control-group" >';
             $form .= isset($espec['label'])?$espec['label']():'';
             $form .= isset($espec['input'])?$espec['input']($val):'';

@@ -131,6 +131,8 @@ class produto extends Eloquent
             "produtos.especificacoes" ,
             "marcas.nome as marca",
         );
+        
+        
         return DB::table('produtos')
             ->left_join('marca_produto', 'produtos' . '.id', '=', 'marca_produto.produto_id')
             ->left_join('marcas', 'marcas.id', '=', 'marca_produto.marca_id')

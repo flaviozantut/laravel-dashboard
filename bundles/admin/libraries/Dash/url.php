@@ -1,6 +1,6 @@
 <?php namespace Dash;
 
-class url
+class Url
 {
     /**
      * switch site language

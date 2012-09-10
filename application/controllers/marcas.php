@@ -1,6 +1,6 @@
 <?php
 
-class Marcas_Controller extends Base_Controller
+class Marcas_Controller extends Admin_Base_Controller
 {
     /**
      * The layout being used by the controller.

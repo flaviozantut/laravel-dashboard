@@ -54,7 +54,8 @@ class marca extends Eloquent
                     return Form::label('logo', 'Logo', array( 'class' => 'large-label'));
                 },
                 'input' => function($val = '') {
-                    return Form::text('logo', $val, array('class'=>''));
+                    //$val,
+                    return Form::file('logo',  array('class'=>''));
                 },
             ),
 
