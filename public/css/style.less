@@ -1,0 +1,348 @@
+/*******************Useful CSS3 LESS Mixins********************/
+//http://css-tricks.com/snippets/css/useful-css3-less-mixins/
+.text-shadow (@string: 0 1px 3px rgba(0, 0, 0, 0.25)) {
+    text-shadow: @string;
+}
+.box-shadow (@string) {
+    -webkit-box-shadow: @string;
+    -moz-box-shadow:    @string;
+    box-shadow:         @string;
+}
+.drop-shadow (@x: 0, @y: 1px, @blur: 2px, @spread: 0, @alpha: 0.25) {
+    -webkit-box-shadow: @x @y @blur @spread rgba(0, 0, 0, @alpha);
+    -moz-box-shadow:    @x @y @blur @spread rgba(0, 0, 0, @alpha);
+    box-shadow:     @x @y @blur @spread rgba(0, 0, 0, @alpha);
+}
+.inner-shadow (@x: 0, @y: 1px, @blur: 2px, @spread: 0, @alpha: 0.25) {
+    -webkit-box-shadow: inset @x @y @blur @spread rgba(0, 0, 0, @alpha);
+    -moz-box-shadow:    inset @x @y @blur @spread rgba(0, 0, 0, @alpha);
+    box-shadow:         inset @x @y @blur @spread rgba(0, 0, 0, @alpha);
+}
+
+.box-sizing (@type: border-box) {
+    -webkit-box-sizing: @type;
+    -moz-box-sizing:    @type;
+    box-sizing:         @type;
+}
+
+.border-radius (@radius: 5px) {
+    -webkit-border-radius: @radius;
+    -moz-border-radius:    @radius;
+    border-radius:         @radius;
+
+    -moz-background-clip:    padding;
+    -webkit-background-clip: padding-box;
+    background-clip:         padding-box;
+}
+.border-radiuses (@topright: 0, @bottomright: 0, @bottomleft: 0, @topleft: 0) {
+    -webkit-border-top-right-radius:    @topright;
+    -webkit-border-bottom-right-radius: @bottomright;
+    -webkit-border-bottom-left-radius:  @bottomleft;
+    -webkit-border-top-left-radius:     @topleft;
+
+    -moz-border-radius-topright:        @topright;
+    -moz-border-radius-bottomright:     @bottomright;
+    -moz-border-radius-bottomleft:      @bottomleft;
+    -moz-border-radius-topleft:         @topleft;
+
+    border-top-right-radius:            @topright;
+    border-bottom-right-radius:         @bottomright;
+    border-bottom-left-radius:          @bottomleft;
+    border-top-left-radius:             @topleft;
+
+    -moz-background-clip:    padding; 
+    -webkit-background-clip: padding-box; 
+    background-clip:         padding-box; 
+}
+
+.opacity (@opacity: 0.5) {
+    -webkit-opacity:    @opacity;
+    -moz-opacity:       @opacity;
+    opacity:        @opacity;
+}
+
+.gradient (@startColor: #eee, @endColor: white) {
+    background-color: @startColor;
+    background: -webkit-gradient(linear, left top, left bottom, from(@startColor), to(@endColor));
+    background: -webkit-linear-gradient(top, @startColor, @endColor);
+    background: -moz-linear-gradient(top, @startColor, @endColor);
+    background: -ms-linear-gradient(top, @startColor, @endColor);
+    background: -o-linear-gradient(top, @startColor, @endColor);
+}
+.horizontal-gradient (@startColor: #eee, @endColor: white) {
+    background-color: @startColor;
+    background-image: -webkit-gradient(linear, left top, right top, from(@startColor), to(@endColor));
+    background-image: -webkit-linear-gradient(left, @startColor, @endColor);
+    background-image: -moz-linear-gradient(left, @startColor, @endColor);
+    background-image: -ms-linear-gradient(left, @startColor, @endColor);
+    background-image: -o-linear-gradient(left, @startColor, @endColor);
+}
+
+.animation (@name, @duration: 300ms, @delay: 0, @ease: ease) {
+    -webkit-animation: @name @duration @delay @ease;
+    -moz-animation:    @name @duration @delay @ease;
+    -ms-animation:     @name @duration @delay @ease;
+}
+
+.transition (@transition) {
+    -webkit-transition: @transition;  
+    -moz-transition:    @transition;
+    -ms-transition:     @transition; 
+    -o-transition:      @transition;  
+}
+.transform(@string){
+    -webkit-transform: @string;
+    -moz-transform:      @string;
+    -ms-transform:       @string;
+    -o-transform:        @string;
+}
+.scale (@factor) {
+    -webkit-transform: scale(@factor);
+    -moz-transform:      scale(@factor);
+    -ms-transform:       scale(@factor);
+    -o-transform:        scale(@factor);
+}
+.rotate (@deg) {
+    -webkit-transform: rotate(@deg);
+    -moz-transform:      rotate(@deg);
+    -ms-transform:       rotate(@deg);
+    -o-transform:        rotate(@deg);
+}
+.skew (@deg, @deg2) {
+    -webkit-transform:       skew(@deg, @deg2);
+    -moz-transform:      skew(@deg, @deg2);
+    -ms-transform:       skew(@deg, @deg2);
+    -o-transform:        skew(@deg, @deg2);
+}
+.translate (@x, @y:0) {
+    -webkit-transform:       translate(@x, @y);
+    -moz-transform:      translate(@x, @y);
+    -ms-transform:       translate(@x, @y);
+    -o-transform:        translate(@x, @y);
+}
+.translate3d (@x, @y: 0, @z: 0) {
+    -webkit-transform:       translate3d(@x, @y, @z);
+    -moz-transform:      translate3d(@x, @y, @z);
+    -ms-transform:       translate3d(@x, @y, @z);
+    -o-transform:        translate3d(@x, @y, @z);
+}
+.perspective (@value: 1000) {
+    -webkit-perspective:    @value;
+    -moz-perspective:   @value;
+    -ms-perspective:    @value;
+    perspective:        @value;
+}
+.transform-origin (@x:center, @y:center) {
+    -webkit-transform-origin: @x @y;
+    -moz-transform-origin:    @x @y;
+    -ms-transform-origin:     @x @y;
+    -o-transform-origin:      @x @y;
+}
+
+
+/*******************Useful CSS3 LESS Mixins********************/
+
+
+
+
+/*****************************VARIABLES******************************************/
+@widthContainer: 940px;
+
+//8b8b8b
+//aeaeae
+//ffffff
+//d7d7d7
+/*****************************VARIABLES******************************************/
+
+
+/*****************************************FONTS**********************************/
+
+@font-face {
+    font-family: 'KlavikaBdBold';
+    src: url('fonts/klavika/klavika-bold-webfont.eot');
+    src: url('fonts/klavika/klavika-bold-webfont.eot?#iefix') format('embedded-opentype'),
+         url('fonts/klavika/klavika-bold-webfont.woff') format('woff'),
+         url('fonts/klavika/klavika-bold-webfont.ttf') format('truetype'),
+         url('fonts/klavika/klavika-bold-webfont.svg#KlavikaBdBold') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+
+
+
+@font-face {
+    font-family: 'KlavikaRgRegular';
+    src: url('fonts/klavika/klavika-regular-webfont.eot');
+    src: url('fonts/klavika/klavika-regular-webfont.eot?#iefix') format('embedded-opentype'),
+         url('fonts/klavika/klavika-regular-webfont.woff') format('woff'),
+         url('fonts/klavika/klavika-regular-webfont.ttf') format('truetype'),
+         url('fonts/klavika/klavika-regular-webfont.svg#KlavikaRgRegular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+/*****************************************FONTS**********************************/
+
+
+body{
+   background:url('img/common/body-bg.png')  repeat; 
+   color: #8b8b8b;
+}
+.left-wrapper, .right-wrapper{
+	position: absolute;
+	height: 100%;
+	overflow: hidden;
+	width: 0px;
+    //background: #d3d33e;
+    &.right-wrapper{
+        right: 0px
+    }
+    &.left-wrapper{
+        left:0px; 
+        .left-logo-wrapper{
+            background:url('img/common/header-left-logo-wrapper.png')  repeat-x;
+            height: 179px;
+            width: 100%;
+            position: absolute;
+            top: 28px;
+        }
+    }
+}
+header{
+	height: 190px;
+	width: 100%;
+	background:url('img/common/header-bg.png')  center;
+	.container{
+		width: @widthContainer;
+		position: relative;
+		margin: auto;
+		height: 100%;
+        .logo-wrapper{
+            background:url('img/common/header-logo-wrapper.png')  no-repeat;
+            height: 179px;
+            text-align: left;
+            line-height: 179px;
+            width: 240px;
+            position: relative;
+            top: 28px;
+            float: left;
+        }
+        nav{
+            
+            .top-menu{
+                float: right;
+                a{
+                    color: #d7d7d7;
+                    font-size: 10px;
+                    text-decoration: none;
+                    &:hover{
+                        color:#aeaeae;
+                    }
+                }
+            }
+            
+            .main-menu{
+                position: absolute;
+                right: 0;
+                bottom: 3px;
+                background: #1b1b1b;
+                background-image: linear-gradient(bottom, rgb(7,7,7) 32%, rgb(27,27,27) 66%, rgb(27,27,27) 83%);
+                background-image: -o-linear-gradient(bottom, rgb(7,7,7) 32%, rgb(27,27,27) 66%, rgb(27,27,27) 83%);
+                background-image: -moz-linear-gradient(bottom, rgb(7,7,7) 32%, rgb(27,27,27) 66%, rgb(27,27,27) 83%);
+                background-image: -webkit-linear-gradient(bottom, rgb(7,7,7) 32%, rgb(27,27,27) 66%, rgb(27,27,27) 83%);
+                background-image: -ms-linear-gradient(bottom, rgb(7,7,7) 32%, rgb(27,27,27) 66%, rgb(27,27,27) 83%);
+                background-image: -webkit-gradient(linear,left bottom,left top,color-stop(0.32, rgb(7,7,7)),color-stop(0.66, rgb(27,27,27)),color-stop(0.83, rgb(27,27,27)));
+                .border-radiuses(10px, 0, 0, 10px);
+                ul{
+
+                    margin: 0;
+                    padding: 0;
+                    li{
+                        &:hover ul{
+                            display: block;
+                        }
+                        float: left;
+                        border-left: solid 1px #000000;
+                        border-right: solid 1px #2e2e2e;
+                        line-height: 37px;
+                        a{
+                            padding: 13px 16px;
+                            text-transform: uppercase;
+                            font-family: KlavikaRgRegular ,"Myriad Pro";
+                            text-decoration: none;
+                            font-size: 14px;
+                            color: #a4a4a4;
+                            .text-shadow(0px 2px 1px #1b1b1b);
+                            &:hover, &.active{
+                                color:#fff;
+                                .text-shadow(0px 2px 1px #2a2929);
+                            }
+                        }
+                        ul{
+                            .transition(all .5s);
+                            display: none;
+                            z-index: 1;
+                            position: absolute;
+                            background: url('img/common/submenu-bg.png');
+                            padding: 0 12px;
+                            .border-radiuses(0, 10px, 10px, 0);
+                            li{
+
+                                float: none;
+                                border:none;
+                                border-bottom: solid 1px #050505;
+                                border-top: solid 1px #565656;
+                                a{
+                                    padding: 13px 0;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+	}
+}
+
+
+
+.right-footer{
+    height: 74px;
+    width: 100%;
+    position: absolute;
+    background:url('img/common/footer-right-bg.png');
+}
+footer{
+    height: 62px;
+    width: 100%;
+    background:url('img/common/footer-bg.png') ;
+    .container{
+        //background: url('footer-right-container-bg.png');
+        width: @widthContainer;
+        position: relative;
+        margin: auto;
+        height: 100%;
+        .social{
+            height: 74px;
+            width: 276px;
+            position: absolute;
+            right: 0px;
+            bottom: 0px;
+            background: url('img/common/footer-right-container-bg.png');
+
+        }
+    }
+}
+
+/*********************************EFFECTS**************************************/
+a {
+    .transition(all .5s);
+   
+    & img:hover{
+        //.opacity(.8);
+        .scale(1.02)
+    }
+}
+/*********************************EFFECTS**************************************/

@@ -1,0 +1,1 @@
+.container-fluid{margin:auto}.input-xlarge{width:450px !important;height:26px !important}input{font-size:16px !important;padding:8px !important}.btn{margin-top:12px}form{margin-bottom:0}.controls{margin-bottom:12px}input:-webkit-autofill{color:#2a2a2a !important}@media (min-width: 1200px){body{padding-top:60px;padding-left:40px;padding-right:40px}.container-fluid{width:590px}}
