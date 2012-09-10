@@ -1,12 +1,12 @@
 <?php namespace Dash;
 
-class Form extends \Laravel\Form
+class form extends \Laravel\Form
 {
     /**
      * Cria um form conforme os dados recebidos
      *
-     * @param  array $description columns from model
-     * @param string $data data to input valua
+     * @param  array  $description columns from model
+     * @param  string $data        data to input valua
      * @return string
      */
     public static function build($description, $data)
@@ -16,9 +16,9 @@ class Form extends \Laravel\Form
          $form .= Form::token();
         foreach ($description as $column => $espec) {
             $column = preg_replace("/^(.*\.)|(.*as )/", '', $column);
-            
-            if(property_exists($data , $column) or $edit) {
-                if(gettype($data->{$column})  == 'array') {
+
+            if (property_exists($data , $column) or $edit) {
+                if (gettype($data->{$column})  == 'array') {
                     $val = isset($data->find($data->{$data::$key})->{$column}[0]->{$column::$key})?$data->find($data->{$data::$key})->{$column}[0]->{$column::$key}:false;
                 } else {
                     $val = $data->{preg_replace("/^(.*\.)|(.*as )/", '', $column)};
@@ -32,9 +32,9 @@ class Form extends \Laravel\Form
             $form .= isset($espec['input'])?$espec['input']($val):'';
             $form .= '</div>';
         }
+
         return $form;
 
     }
-
 
 }

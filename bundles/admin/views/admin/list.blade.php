@@ -5,17 +5,17 @@
             <thead>  <tr>
                 <?php $first = true; ?>
                 @foreach ($result as $key => $value)
-                    <?php if ($first){$first = false; continue;}  ?>
-                    <th> {{ $key }} </th> 
+                    <?php if ($first) {$first = false; continue;}  ?>
+                    <th> {{ $key }} </th>
                 @endforeach
                 <th class="align-right"> Opções </th>
             </tr> </thead>
         @endif
         <tr>
             <?php $keyValue = false; $i = 0; $len = count($result); ?>
-            @foreach ($result as $key => $value) 
+            @foreach ($result as $key => $value)
                 <?php
-                    if (!$keyValue and $key == $modelKey) { 
+                    if (!$keyValue and $key == $modelKey) {
                         $keyValue = $value; continue;
                     }
                     $i++;
@@ -23,7 +23,7 @@
                 <td> {{ $value }} </td>
 
             @endforeach
-            <td class="align-right"> 
+            <td class="align-right">
                 <a class="btn" href="{{ URL::home() . "admin/{$controller}/edit/{$keyValue}" }}"><i class="icon-edit"></i></a>
                 <a href="#modal" role="button" class="btn delete" data-key="{{$modelKey}}" data-value="{{$keyValue}}" data-toggle="modal"><i class="icon-remove"></i></a>
             </td>

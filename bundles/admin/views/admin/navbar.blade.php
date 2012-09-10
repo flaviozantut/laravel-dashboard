@@ -12,10 +12,10 @@
                 <ul class="nav">
 
                     <li class="{{ URI::is('*admin/dashboard*')?'active':'' }}">{{ HTML::link('admin', 'Home') }}</li>
-                   
+
                     <li class="{{ URI::is('*admin/produtos*')?'active':'' }}">{{ HTML::link('admin/produtos', 'Produtos') }}</li>
                     <li class="{{ URI::is('*admin/pedidos*')?'active':'' }}">{{ HTML::link('admin/pedidos', 'Pedidos') }}</li>
-                    
+
                     <li class="{{ URI::is('*admin/users*')?'active':'' }}">{{ HTML::link('admin/users', 'Usuários') }}</li>
                     <li class="{{ URI::is('*admin/pages*')?'active':'' }}">{{ HTML::link('admin/pages', 'Institucional') }}</li>
                     <?php /*<li class="divider-vertical"></li>
@@ -29,7 +29,6 @@
                             <li><a href="#">Termos e Condições</a></li>
                         </ul>
                     </li>*/ ?>
-
 
                 </ul>
 

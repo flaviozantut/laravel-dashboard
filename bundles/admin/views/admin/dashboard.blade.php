@@ -26,14 +26,10 @@
         </ul>
     @endif
 
-
     <div class="tab-content">
         <div class="tab-pane active" >
             {{$dashContent}}
         </div>
 
-
     </div>
 </div>
-
-

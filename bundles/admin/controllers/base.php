@@ -33,8 +33,8 @@ class Admin_Base_Controller extends Controller
 
         $this->admin['dashContent'] = 'admin::admin.list';
         $this->admin['columns'] = $model::columns();
-        
-        
+
+
         $this->admin['data'] = $model::paginate();
         /*$this->admin['data'] = DB::table($this->table)
             ->left_join('marca_produto', $this->table . '.id', '=', 'marca_produto.produto_id')
@@ -130,21 +130,21 @@ class Admin_Base_Controller extends Controller
             foreach ($input as $key => $value) {
                 if($key == "csrf_token") continue;
                 if (in_array($key, $fields)) {
-                    if( in_array($key, Config::get('admin::settings.uploader'))) {
-                        $data->$key = 'lalalalala';
-                    } else { 
+                    if ( in_array($key, Config::get('admin::settings.uploader'))) {
+                        $data->$key = \Dash\Upload::save($key);
+                    } else {
                         $data->$key = $value;
                     }
-                    
+
                 } else {
                     //$data->$key()->sync(array($value));
                     //var_dump($data->$key()->delete());
                     $relationship = true;
                 }
-               
+
             }
             $data->save();
-            if ( $relationship ) {
+            if ($relationship) {
                 $lastId = $new?DB::connection('mysql')->pdo->lastInsertId():$input[$model::$key];
                 $data = $model::find($lastId);
 
@@ -156,11 +156,11 @@ class Admin_Base_Controller extends Controller
                 }
             }
 
-            
-           
-            
-            
-            Messages::add('info', 'Dados atualizados');
+
+
+
+
+            \Dash\Messages::add('info', 'Dados atualizados');
         }
 
         return Redirect::to(Request::referrer());
@@ -168,24 +168,24 @@ class Admin_Base_Controller extends Controller
 
      public function post_delete()
     {
-        
+
         $model = $this->model;
 
         $input = Input::all();
 
 
         if (($data = $model::find($input[$model::$key]))) {
-            
+
             $data->delete();
             Messages::add('info', 'Registro deletado');
+
             return Redirect::to(Request::referrer());
         } else {
             Messages::add('info', 'Erro ao deletar o registro');
+
             return Redirect::to(Request::referrer());
         }
 
-
-        
     }
 
 }

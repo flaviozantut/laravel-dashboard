@@ -13,19 +13,29 @@ return array(
 
     'uploader' => array(
         'foto' ,
-        'logo' , 
-        'file' , 
+        'logo' ,
+        'file' ,
     ),
+
+
+     /*
+    |--------------------------------------------------------------------------
+    | upload_path
+    |--------------------------------------------------------------------------
+    |Local onde serão salvos os arquivos
+    */
+
+    'upload_path' => 'public/uploads',
+
+    
 
     /*
     |--------------------------------------------------------------------------
     | Itens por página
     |--------------------------------------------------------------------------
-    |Numero de itens a serem exibidos em paginações 
+    |Numero de itens a serem exibidos em paginações
     */
 
     'per_page' => 10,
-
-   
 
 );

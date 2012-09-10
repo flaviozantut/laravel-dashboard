@@ -3,7 +3,7 @@
  * Products
  *
  */
-class produto extends Eloquent
+class Produto extends Eloquent
 {
 
 

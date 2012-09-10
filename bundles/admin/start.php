@@ -16,7 +16,7 @@
 */
 
 Autoloader::map(array(
-	'Admin_Base_Controller' => Bundle::path('admin') .'controllers/base.php',
+    'Admin_Base_Controller' => Bundle::path('admin') .'controllers/base.php',
 ));
 
 /*
@@ -33,10 +33,6 @@ Autoloader::map(array(
 Autoloader::directories(array(
 
 ));
-
-
-
-
 
 /*
 |--------------------------------------------------------------------------

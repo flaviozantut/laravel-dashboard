@@ -54,8 +54,11 @@ class marca extends Eloquent
                     return Form::label('logo', 'Logo', array( 'class' => 'large-label'));
                 },
                 'input' => function($val = '') {
-                    //$val,
-                    return Form::file('logo',  array('class'=>''));
+                    $str  = HTML::image(\Config::get('admin::settings.upload_path') . "/" . $val, '');
+                    $str .= Form::hidden('logo' , $val);
+                    $str .= '<br />';
+                    $str .= Form::file('logo',  array('class'=>''));
+                    return $str;
                 },
             ),
 
@@ -65,6 +68,7 @@ class marca extends Eloquent
                     return Form::label('nome', 'Nome', array( 'class' => 'large-label'));
                 },
                 'input' => function($val = '') {
+
                     return Form::text('nome', $val, array('class'=>'x-large'));
                 },
             ),

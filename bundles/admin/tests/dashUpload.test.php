@@ -6,22 +6,38 @@
 *
 */
 
+
+
 class TestDashUplaod extends PHPUnit_Framework_TestCase
-{   
+{
 
     /**
-     * Test label
+     * Setup the test enviornment.
+     */
+    public function setUp()
+    {
+        Bundle::start('admin');
+    }
+
+    /**
+     * Test Save
      *
      * @return void
     */
-    public function test1 () 
+    public function testSave ()
     {
-       $this->assertEquals(true, true);
+        $this->assertTrue(true);
     }
 
-  
 
-
-
+    /**
+     * Test Save
+     *
+     * @return void
+    */
+    public function testCheckPath ()
+    {
+        $this->assertTrue(\Dash\Upload::checkPath(''));
+    }
 
 }

@@ -23,8 +23,7 @@ class TestDashUrl extends PHPUnit_Framework_TestCase
      */
     public function testSwitchUri()
     {
-
-        $this->assertEquals('http://localhost/en/product/1', Dash\Url::switchUri('en', 'http://localhost/es/product/1'));
+        $this->assertEquals('http://localhost/en/product/1', \Dash\Url::switchUri('en', 'http://localhost/es/product/1'));
 
     }
 
