@@ -46,5 +46,6 @@ return array(
     'bob',
     'pcs',
     'admin' => array('handles' => 'admin', 'auto' => true),
+    'thumburl' => array('handles' => 'thumburl', 'auto' => true),
 
 );

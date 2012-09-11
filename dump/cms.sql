@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: localhost:3306
--- Tempo de Geração: 09/09/2012 às 22h24min
+-- Tempo de Geração: 11/09/2012 às 00h16min
 -- Versão do Servidor: 5.5.24
 -- Versão do PHP: 5.3.10-1ubuntu3.2
 
@@ -33,7 +33,14 @@ CREATE TABLE IF NOT EXISTS `categorias` (
   `created_at` datetime NOT NULL,
   `updated_at` datetime NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=3 ;
+
+--
+-- Extraindo dados da tabela `categorias`
+--
+
+INSERT INTO `categorias` (`id`, `cod`, `nome`, `created_at`, `updated_at`) VALUES
+(1, 111, 'teste', '2012-09-11 00:11:49', '2012-09-11 00:11:49');
 
 -- --------------------------------------------------------
 
@@ -180,35 +187,9 @@ CREATE TABLE IF NOT EXISTS `marcas` (
 --
 
 INSERT INTO `marcas` (`id`, `cod`, `logo`, `nome`, `created_at`, `updated_at`) VALUES
-(1, 1, 'ewrwer.wer', 'sfgfdg', '2012-09-07 20:56:05', '2012-09-07 20:56:05'),
+(1, 1, '05d613182a9cd706e4840a7f944c8f25.jpg', 'sfgfdg', '2012-09-07 20:56:05', '2012-09-10 23:17:15'),
 (2, 123123, 'qwe', 'Marca 1', '2012-09-07 21:46:54', '2012-09-07 21:46:54'),
 (3, 1, 'a.jpg', 'teste', '2012-09-09 23:42:00', '2012-09-09 23:42:00');
-
--- --------------------------------------------------------
-
---
--- Estrutura da tabela `marca_produto`
---
-
-CREATE TABLE IF NOT EXISTS `marca_produto` (
-  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
-  `produto_id` int(11) NOT NULL,
-  `marca_id` int(11) NOT NULL,
-  `created_at` datetime NOT NULL,
-  `updated_at` datetime NOT NULL,
-  PRIMARY KEY (`id`),
-  KEY `produto_id` (`produto_id`,`marca_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=32 ;
-
---
--- Extraindo dados da tabela `marca_produto`
---
-
-INSERT INTO `marca_produto` (`id`, `produto_id`, `marca_id`, `created_at`, `updated_at`) VALUES
-(15, 11, 2, '2012-09-08 21:58:05', '2012-09-08 21:58:05'),
-(25, 1, 2, '2012-09-09 19:53:02', '2012-09-09 19:53:02'),
-(26, 12, 2, '2012-09-09 19:53:17', '2012-09-09 19:53:17'),
-(31, 7, 3, '2012-09-10 00:47:57', '2012-09-10 00:47:57');
 
 -- --------------------------------------------------------
 
@@ -261,8 +242,8 @@ CREATE TABLE IF NOT EXISTS `produtos` (
 --
 
 INSERT INTO `produtos` (`id`, `cod`, `sku`, `nome`, `descricao`, `especificacoes`, `preco`, `preco_promocional`, `slug`, `peso`, `created_at`, `updated_at`) VALUES
-(7, 1111, '999', 'teste', '<p>aaaa</p>', '<p>lalalaa</p>', 0.00, NULL, '', 0, '2012-09-08 21:49:48', '2012-09-10 01:16:32'),
-(12, 9991, '01', 'teste', '<p>teste</p>', '<p>teste</p>', 0.00, NULL, '', 0, '2012-09-08 22:07:24', '2012-09-09 19:53:17');
+(7, 1111, '999', 'teste', '<p>aaaa</p>', '<p>lalalaa</p>', 0.00, NULL, '', 0, '2012-09-08 21:49:48', '2012-09-11 02:08:39'),
+(12, 9991, '01', 'teste', '<p>teste</p>', '<p>teste</p>', 0.00, NULL, '', 0, '2012-09-08 22:07:24', '2012-09-11 02:12:14');
 
 -- --------------------------------------------------------
 
@@ -312,6 +293,32 @@ CREATE TABLE IF NOT EXISTS `produto_fotos` (
 -- --------------------------------------------------------
 
 --
+-- Estrutura da tabela `produto_marca`
+--
+
+CREATE TABLE IF NOT EXISTS `produto_marca` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `produto_id` int(11) NOT NULL,
+  `marca_id` int(11) NOT NULL,
+  `created_at` datetime NOT NULL,
+  `updated_at` datetime NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `produto_id` (`produto_id`,`marca_id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=36 ;
+
+--
+-- Extraindo dados da tabela `produto_marca`
+--
+
+INSERT INTO `produto_marca` (`id`, `produto_id`, `marca_id`, `created_at`, `updated_at`) VALUES
+(15, 11, 2, '2012-09-08 21:58:05', '2012-09-08 21:58:05'),
+(25, 1, 2, '2012-09-09 19:53:02', '2012-09-09 19:53:02'),
+(34, 7, 2, '2012-09-11 02:08:39', '2012-09-11 02:08:39'),
+(35, 12, 1, '2012-09-11 02:12:14', '2012-09-11 02:12:14');
+
+-- --------------------------------------------------------
+
+--
 -- Estrutura da tabela `rules`
 --
 
@@ -357,22 +364,36 @@ CREATE TABLE IF NOT EXISTS `subcategorias` (
   `created_at` datetime NOT NULL,
   `updated_at` datetime NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=8 ;
+
+--
+-- Extraindo dados da tabela `subcategorias`
+--
+
+INSERT INTO `subcategorias` (`id`, `cod`, `nome`, `created_at`, `updated_at`) VALUES
+(1, 1, 'wer', '2012-09-11 00:38:20', '2012-09-11 00:47:12');
 
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `subcategoria_categorias`
+-- Estrutura da tabela `subcategoria_categoria`
 --
 
-CREATE TABLE IF NOT EXISTS `subcategoria_categorias` (
+CREATE TABLE IF NOT EXISTS `subcategoria_categoria` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
-  `id_categoria` int(11) NOT NULL,
-  `id_subcategoria` int(11) NOT NULL,
+  `categoria_id` int(11) NOT NULL,
+  `subcategoria_id` int(11) NOT NULL,
   `created_at` datetime NOT NULL,
   `updated_at` datetime NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=17 ;
+
+--
+-- Extraindo dados da tabela `subcategoria_categoria`
+--
+
+INSERT INTO `subcategoria_categoria` (`id`, `categoria_id`, `subcategoria_id`, `created_at`, `updated_at`) VALUES
+(16, 1, 1, '2012-09-11 02:09:54', '2012-09-11 02:09:54');
 
 -- --------------------------------------------------------
 
