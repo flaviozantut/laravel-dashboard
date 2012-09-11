@@ -35,6 +35,11 @@ class Produto extends Eloquent
           return $this->has_many_and_belongs_to('marca');
     }
 
+    public function subcategoria()
+    {
+          return $this->has_many_and_belongs_to('subcategoria');
+    }
+
 
     /**
      * fields to be used in the form
@@ -100,7 +105,24 @@ class Produto extends Eloquent
                 },
             ),
 
-             'marcas.nome as marca' => array(
+             'subcategoria' => array(
+                'name' => 'Subcategoria',
+                 'label' =>  function() {
+                    return Form::label('subcategoria', 'Subcategoria', array( 'class' => 'large-label'));
+                },
+                'input' => function($val = '') {
+                     $subcategoria = array();
+                     foreach (Subcategoria::all() as $value) {
+                        $subcategoria[$value->id] = $value->nome;
+                     }
+                     
+                    return Form::select('subcategoria', $subcategoria, $val);
+                },
+            ),
+
+
+
+             'marca' => array(
                 'name' => 'Marca',
                  'label' =>  function() {
                     return Form::label('marca', 'Marca', array( 'class' => 'large-label'));
