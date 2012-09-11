@@ -1,4 +1,13 @@
 <?php
+/**
+ * Thumburl
+ *
+ * @category Thumburl
+ * @package  Thumburl
+ * @author   Flavio Zantut  <flaviozantut@gmail.com>
+ * @license  MIT License <http://www.opensource.org/licenses/mit>
+ * @link     http://link.com
+ */
 
 return array(
 
@@ -18,7 +27,16 @@ return array(
          * Globally enable caching for all assets, this is only recommended once an application
          * is live.
          */
-        'enabled' => false,
+        'enabled' => true,
+
+        /**
+         * Cache Folder
+         *
+         * Globally enable caching for all assets, this is only recommended once an application
+         * is live.
+         */
+        'folder' => Bundle::path('thumburl') . 'images/cache',
+
 
         /**
          * Time
@@ -28,6 +46,17 @@ return array(
          */
         'time' => 44640,
     ),
+
+   /*
+    |--------------------------------------------------------------------------
+    | Lib to images manipulation
+    |--------------------------------------------------------------------------
+    |
+    |'Gd' or 'Imagick' or 'Gmagick'
+    |
+    */
+   'error_image' => Bundle::path('thumburl') . 'images/error/not-found.jpg' ,
+
 
     /*
     |--------------------------------------------------------------------------
@@ -50,5 +79,6 @@ return array(
     | Imagine\Image\ImageInterface::THUMBNAIL_OUTBOUND
     |
     */
-   'mode' => Imagine\Image\ImageInterface::THUMBNAIL_OUTBOUND ,
+   'mode_outbound' => Imagine\Image\ImageInterface::THUMBNAIL_OUTBOUND ,
+   'mode_inset' => Imagine\Image\ImageInterface::THUMBNAIL_INSET ,
 );

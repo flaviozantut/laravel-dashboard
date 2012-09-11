@@ -1,4 +1,13 @@
 <?php
+/**
+ * Thumburl
+ *
+ * @category Thumburl
+ * @package  Thumburl
+ * @author   Flavio Zantut  <flaviozantut@gmail.com>
+ * @license  MIT License <http://www.opensource.org/licenses/mit>
+ * @link     http://link.com
+ */
 
 /*
 |--------------------------------------------------------------------------
@@ -16,7 +25,7 @@
 */
 
 Autoloader::map(array(
-    
+    'Thumburl' => Bundle::path('thumburl').'libraries/thumburl.php',
 ));
 
 /*

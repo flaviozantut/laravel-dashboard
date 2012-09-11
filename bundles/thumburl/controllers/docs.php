@@ -1,9 +1,19 @@
 <?php
 /**
- * Thumburl Docs
+ * Thumburl
  *
  * @category Thumburl
- * @package  Docs
+ * @package  Thumburl
+ * @author   Flavio Zantut  <flaviozantut@gmail.com>
+ * @license  MIT License <http://www.opensource.org/licenses/mit>
+ * @link     http://link.com
+ */
+
+/**
+ * Thumburl Docs
+ * 
+ * @category Docs
+ * @package  Thumbur
  * @author   Flavio Zantut  <flaviozantut@gmail.com>
  * @license  MIT License <http://www.opensource.org/licenses/mit>
  * @link     http://link.com
@@ -13,8 +23,9 @@ class Thumburl_Docs_Controller extends Controller
     /**
      * Catch-all method for requests that can't be matched.
      *
-     * @param  string   $method
-     * @param  array    $parameters
+     * @param string $method     method
+     * @param array  $parameters parameters
+     * 
      * @return Response
      */
     public function __call($method, $parameters)

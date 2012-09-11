@@ -381,7 +381,7 @@ CREATE TABLE IF NOT EXISTS `subcategorias` (
 
 INSERT INTO `subcategorias` (`id`, `cod`, `nome`, `created_at`, `updated_at`) VALUES
 (1, 1, 'wer', '2012-09-11 00:38:20', '2012-09-11 15:11:45'),
-(8, 123, 'lalala', '2012-09-11 15:02:22', '2012-09-11 15:02:33');
+(8, 123, 'lalala', '2012-09-11 15:02:22', '2012-09-11 15:16:11');
 
 -- --------------------------------------------------------
 
@@ -396,7 +396,7 @@ CREATE TABLE IF NOT EXISTS `subcategoria_categoria` (
   `created_at` datetime NOT NULL,
   `updated_at` datetime NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=19 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=20 ;
 
 --
 -- Extraindo dados da tabela `subcategoria_categoria`
@@ -404,7 +404,8 @@ CREATE TABLE IF NOT EXISTS `subcategoria_categoria` (
 
 INSERT INTO `subcategoria_categoria` (`id`, `categoria_id`, `subcategoria_id`, `created_at`, `updated_at`) VALUES
 (16, 1, 1, '2012-09-11 02:09:54', '2012-09-11 02:09:54'),
-(17, 3, 1, '2012-09-11 14:46:05', '2012-09-11 14:46:05');
+(17, 3, 1, '2012-09-11 14:46:05', '2012-09-11 14:46:05'),
+(19, 3, 8, '2012-09-11 15:16:11', '2012-09-11 15:16:11');
 
 -- --------------------------------------------------------
 
