@@ -17,12 +17,23 @@ class Categorias_Controller extends  Admin_Base_Controller
     public $restful = true;
 
     public $admin = array(
-        'title' =>'Produtos - Categorias',
+        'title' =>'Produtos - Categorias' ,
+
         'navTabs' => array(
-            'admin/produtos' => 'Produtos',
-            'admin/marcas' => 'Marcas',
-            'admin/categorias' => 'Categorias',
-        )
+            'admin/produtos' => 'Produtos' ,
+            'admin/fotos' => 'Fotos' ,
+            'admin/marcas' => 'Marcas' ,
+            'admin/categorias' => 'Categorias' ,
+            'admin/subcategorias' => 'Subcategorias'
+
+        ) ,
+        'addTabs' => array(
+            'admin/produtos/add' => 'Produto' ,
+            'admin/fotos/add' => 'Fotos' ,
+            'admin/marcas/add' => 'Marcas' ,
+            'admin/categorias/add' => 'Categorias' ,
+            'admin/subcategorias/add' => 'Subcategorias' , 
+        ) ,
     );
 
 }

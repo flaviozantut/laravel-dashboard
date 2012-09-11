@@ -1,6 +1,6 @@
 <?php
 
-class Marcas_Controller extends Admin_Base_Controller
+class Fotos_Controller extends  Admin_Base_Controller
 {
     /**
      * The layout being used by the controller.
@@ -17,7 +17,7 @@ class Marcas_Controller extends Admin_Base_Controller
     public $restful = true;
 
     public $admin = array(
-        'title' =>'Produtos - Marcas' ,
+        'title' =>'Fotos' ,
 
         'navTabs' => array(
             'admin/produtos' => 'Produtos' ,

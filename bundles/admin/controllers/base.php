@@ -22,6 +22,7 @@ class Admin_Base_Controller extends Controller
         parent::__construct();
         $this->model =  strtolower(preg_replace("/s_Controller/", '', get_class($this)));
         $this->table =  strtolower(preg_replace("/_Controller/", '', get_class($this)));
+
     }
 
 
@@ -36,11 +37,6 @@ class Admin_Base_Controller extends Controller
 
 
         $this->admin['data'] = $model::paginate();
-        /*$this->admin['data'] = DB::table($this->table)
-            ->left_join('marca_produto', $this->table . '.id', '=', 'marca_produto.produto_id')
-            ->left_join('marcas', 'marcas.id', '=', 'marca_produto.marca_id')
-            ->paginate(Config::get('application.per_page'), array_keys($model::columns()))
-            ;*/
         $this->admin['modelKey'] = $model::key();
 
         return $this->admin;
@@ -49,6 +45,9 @@ class Admin_Base_Controller extends Controller
 
     public function get_add()
     {
+        Asset::add('chosen', 'libs/chosen/chosen.jquery.min.js');
+        Asset::add('chosen', 'libs/chosen/chosen.css');
+        Asset::add('chosen_run', 'libs/chosen/run.js');
 
         $model = $this->model;
         $this->admin['model'] = $model;
@@ -75,6 +74,9 @@ class Admin_Base_Controller extends Controller
 
     public function get_edit($id)
     {
+        Asset::add('chosen', 'libs/chosen/chosen.jquery.min.js');
+        Asset::add('chosen', 'libs/chosen/chosen.css');
+        Asset::add('chosen_run', 'libs/chosen/run.js');
 
         $model = $this->model;
 
@@ -137,29 +139,25 @@ class Admin_Base_Controller extends Controller
                     }
 
                 } else {
-                    //$data->$key()->sync(array($value));
-                    //var_dump($data->$key()->delete());
                     $relationship = true;
                 }
 
             }
+
             $data->save();
             if ($relationship) {
                 $lastId = $new?DB::connection('mysql')->pdo->lastInsertId():$input[$model::$key];
                 $data = $model::find($lastId);
-
+                //var_dump($input); die();
                 foreach ($input as $key => $value) {
+                    if($key == "csrf_token") continue;
                     if (!in_array($key, $fields)) {
-                        $data->$key = $value;
-                        $data->$key()->sync(array($value));
+                        //$data->$key = $value;
+                        //$insert = ;
+                        $data->$key()->sync(is_array($value)?$value:array($value));
                     }
                 }
             }
-
-
-
-
-
             \Dash\Messages::add('info', 'Dados atualizados');
         }
 
@@ -177,11 +175,11 @@ class Admin_Base_Controller extends Controller
         if (($data = $model::find($input[$model::$key]))) {
 
             $data->delete();
-            Messages::add('info', 'Registro deletado');
+            \Dash\Messages::add('info', 'Registro deletado');
 
             return Redirect::to(Request::referrer());
         } else {
-            Messages::add('info', 'Erro ao deletar o registro');
+            \Dash\Messages::add('info', 'Erro ao deletar o registro');
 
             return Redirect::to(Request::referrer());
         }

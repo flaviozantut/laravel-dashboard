@@ -1,9 +1,9 @@
 <phpunit colors="true"
-         bootstrap="C:\wamp\www.original\projects\laravel-dashboard\laravel\cli\tasks\test\phpunit.php"
+         bootstrap="/var/www/projects/cms/laravel/cli/tasks/test/phpunit.php"
          backupGlobals="false">
 	<testsuites>
 		<testsuite name="Test Suite">
-			<directory suffix=".test.php">C:\wamp\www.original\projects\laravel-dashboard\bundles\admin\tests</directory>
+			<directory suffix=".test.php">/var/www/projects/cms/bundles/admin/tests</directory>
 		</testsuite>
 	</testsuites>
 </phpunit>

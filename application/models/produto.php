@@ -106,11 +106,8 @@ class Produto extends Eloquent
                     return Form::label('marca', 'Marca', array( 'class' => 'large-label'));
                 },
                 'input' => function($val = '') {
-
-                    //return Form::textarea('especificacoes', $val, array('class'=>'redactor x-large'));
                      $marcas = array();
-                     foreach (marca::all() as $value) {
-                         Log::write('info', $value->id . "  " . $value->nome);
+                     foreach (Marca::all() as $value) {
                          $marcas[$value->id] = $value->nome;
                      }
                      
@@ -134,8 +131,8 @@ class Produto extends Eloquent
         
         
         return DB::table('produtos')
-            ->left_join('marca_produto', 'produtos' . '.id', '=', 'marca_produto.produto_id')
-            ->left_join('marcas', 'marcas.id', '=', 'marca_produto.marca_id')
+            ->left_join('produto_marca', 'produtos' . '.id', '=', 'produto_marca.produto_id')
+            ->left_join('marcas', 'marcas.id', '=', 'produto_marca.marca_id')
             ->paginate(Config::get('application.per_page'), $items);
     }
 

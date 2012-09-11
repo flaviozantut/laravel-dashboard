@@ -24,13 +24,15 @@ class Produtos_Controller extends Admin_Base_Controller
             'admin/fotos' => 'Fotos' ,
             'admin/marcas' => 'Marcas' ,
             'admin/categorias' => 'Categorias' ,
+            'admin/subcategorias' => 'Subcategorias'
 
         ) ,
         'addTabs' => array(
             'admin/produtos/add' => 'Produto' ,
             'admin/fotos/add' => 'Fotos' ,
             'admin/marcas/add' => 'Marcas' ,
-            'admin/categorias' => 'Categorias' ,
+            'admin/categorias/add' => 'Categorias' ,
+            'admin/subcategorias/add' => 'Subcategorias' , 
         ) ,
     );
 

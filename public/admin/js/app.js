@@ -1,14 +1,5 @@
 $(function(){
 
-	//$('body').append('loaded');
-	 //$('.ckeditor_basic').ckeditor( function() { /* callback code */ }, { toolbar : 'Basic' } );
-	
-	//$('.ckeditor_full').ckeditor( function() { /* callback code */ }, { toolbar : 'Full' } );
-
-	//$('.date').datepicker();
-
-    //$('#modal').modal('toggle');
-    
     $('.cancel').click(function(){
         $('#modal').modal('hide')
     });

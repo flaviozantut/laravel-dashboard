@@ -60,6 +60,20 @@ class page extends Eloquent
         );
     }
 
+
+    public static function paginate()
+    {
+        $items = array(
+            'slug',
+            'title',
+            'text'
+        );
+        return DB::table('pages')
+            ->paginate(Config::get('application.per_page'), $items);
+    }
+
+
+
     /**
      * validation rules of the form
      *
