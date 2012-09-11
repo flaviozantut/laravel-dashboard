@@ -28,4 +28,27 @@ return array(
          */
         'time' => 44640,
     ),
+
+    /*
+    |--------------------------------------------------------------------------
+    | Lib to images manipulation
+    |--------------------------------------------------------------------------
+    |
+    |'Gd' or 'Imagick' or 'Gmagick'
+    |
+    */
+   'lib' => 'Gd' ,
+
+   /*
+    |--------------------------------------------------------------------------
+    | Mode
+    |--------------------------------------------------------------------------
+    |
+    |THUMBNAIL_INSET or THUMBNAIL_OUTBOUND
+    |
+    | Imagine\Image\ImageInterface::THUMBNAIL_INSET
+    | Imagine\Image\ImageInterface::THUMBNAIL_OUTBOUND
+    |
+    */
+   'mode' => Imagine\Image\ImageInterface::THUMBNAIL_OUTBOUND ,
 );

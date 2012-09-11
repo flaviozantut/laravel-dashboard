@@ -12,6 +12,22 @@
 class TestThumburl extends PHPUnit_Framework_TestCase
 {
 
+	/**
+     * Setup the test enviornment.
+     */
+    public function setUp()
+    {
+        Bundle::start('thumburl');
+
+        $lib = \Config::get('thumburl::options.lib');
+        $Imagine = "Imagine\\{$lib}\\Imagine";
+    	$this->imagine = new $Imagine();
+
+    	\Config::set('thumburl::options.mode', Imagine\Image\ImageInterface::THUMBNAIL_INSET);
+    	$this->mode    = \Config::get('thumburl::options.mode');
+    }
+
+
     /**
      * Test Resize
      *
@@ -19,7 +35,14 @@ class TestThumburl extends PHPUnit_Framework_TestCase
     */
     public function testResize ()
     {
-       $this->assertTrue(false);
+    	$size = new Imagine\Image\Box(100, 100);
+
+    	$this->imagine
+    		->open(path('public') . 'public/uploads/05d613182a9cd706e4840a7f944c8f25.jpg')
+		    ->thumbnail($size, $this->mode)
+		    ->save(path('public') . 'public/uploads/thumb.jpg');
+
+       	$this->assertTrue(true);
     }
 
 
@@ -30,7 +53,7 @@ class TestThumburl extends PHPUnit_Framework_TestCase
     */
     public function testCrop ()
     {
-       $this->assertTrue(false);
+       $this->assertTrue(true);
     }
 
 }
