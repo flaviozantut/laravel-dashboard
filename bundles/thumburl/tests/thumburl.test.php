@@ -1,4 +1,13 @@
 <?php
+/**
+ * Thumburl
+ *
+ * @category Thumburl
+ * @package  Thumburl
+ * @author   Flavio Zantut  <flaviozantut@gmail.com>
+ * @license  MIT License <http://www.opensource.org/licenses/mit>
+ * @link     http://link.com
+ */
 
 /**
  * Thumburl Test
@@ -13,24 +22,31 @@ class TestThumburl extends PHPUnit_Framework_TestCase
 {
 
     /**
+     * Setup the test enviornment.
+     * 
+     * @return void
+     */
+    public function setUp()
+    {
+        Bundle::start('thumburl');
+
+        $this->thumb = new Thumburl();
+    }
+
+
+
+    /**
      * Test Resize
      *
      * @return void
     */
-    public function testResize ()
+    public function testUrl ()
     {
-       $this->assertTrue(false);
-    }
+        //URL
+        $this->assertEquals($this->thumb->url('http://www.image.com/image.png'), 'http://www.image.com/image.png');
 
-
-    /**
-     * Test Crop
-     *
-     * @return void
-    */
-    public function testCrop ()
-    {
-       $this->assertTrue(false);
+        //error
+        $this->assertEquals($this->thumb->url('foo.png'), \Config::get('thumburl::options.error_image'));
     }
 
 }
